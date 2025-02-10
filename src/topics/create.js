@@ -33,6 +33,7 @@ module.exports = function (Topics) {
 			lastposttime: 0,
 			postcount: 0,
 			viewcount: 0,
+			//store 'type' in the database 
 			type: data.type || "discussion", //default to discussion
 		};
 

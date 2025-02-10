@@ -214,3 +214,18 @@ Chats.messages.unpin = async (req, res) => {
 
 	helpers.formatApiResponse(200, res);
 };
+
+// Added controller functions to match API routes
+Chats.messages.markImportant = async (req, res) => {
+	const { mid, roomId } = req.params;
+	await api.chats.markMessageImportant(req, { mid, roomId });
+
+	helpers.formatApiResponse(200, res);
+};
+
+Chats.messages.unmarkImportant = async (req, res) => {
+	const { mid, roomId } = req.params;
+	await api.chats.unmarkMessageImportant(req, { mid, roomId });
+
+	helpers.formatApiResponse(200, res);
+};

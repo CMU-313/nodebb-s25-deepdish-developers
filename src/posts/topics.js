@@ -21,6 +21,7 @@ module.exports = function (Posts) {
 		return isArray ? result : result[0];
 	};
 
+	// Gets important field from database
 	Posts.getTopicFields = async function (pid, fields) {
 		const tid = await Posts.getPostField(pid, 'tid');
 		return await topics.getTopicFields(tid, fields);

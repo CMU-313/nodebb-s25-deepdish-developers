@@ -12,7 +12,7 @@ const intFields = [
 	'tid', 'cid', 'uid', 'mainPid', 'postcount',
 	'viewcount', 'postercount', 'deleted', 'locked', 'pinned',
 	'pinExpiry', 'timestamp', 'upvotes', 'downvotes', 'lastposttime',
-	'deleterUid',
+	'deleterUid', 'important',
 ];
 
 module.exports = function (Topics) {
@@ -62,6 +62,7 @@ module.exports = function (Topics) {
 		return await categories.getCategoryData(cid);
 	};
 
+	// Sets important field in each topic
 	Topics.setTopicField = async function (tid, field, value) {
 		await db.setObjectField(`topic:${tid}`, field, value);
 	};

@@ -330,7 +330,6 @@ exports.testSocket = async function (socketPath) {
 		testSocket.connect({ path: socketPath }, () => {
 			// Something's listening here, abort
 			reject(new Error('port-in-use'));
-			socket.close();
 		});
 	});
 };

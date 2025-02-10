@@ -36,6 +36,7 @@ const routes = require('./routes');
 const auth = require('./routes/authentication');
 
 const helpers = require('./helpers');
+const s = require('connect-redis');
 
 if (nconf.get('ssl')) {
 	server = require('https').createServer({
@@ -329,6 +330,7 @@ exports.testSocket = async function (socketPath) {
 		testSocket.connect({ path: socketPath }, () => {
 			// Something's listening here, abort
 			reject(new Error('port-in-use'));
+			socket.close();
 		});
 	});
 };

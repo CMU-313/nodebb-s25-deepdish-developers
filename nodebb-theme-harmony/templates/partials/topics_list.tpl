@@ -28,9 +28,13 @@
 						<i class="fa fa-bell-o"></i>
 						<span>[[topic:watching]]</span>
 					</span>
-					<span component="topic/question" class="badge border border-gray-300 text-body">
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./question-type }}}hidden{{{ end }}}">
 						<i class="fa fa-question-circle"></i>
 						<span>[[topic:Question]]</span>
+					</span>
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./discussion-type }}}hidden{{{ end }}}">
+						<i class="fa fa-comments"></i>
+						<span>[[topic:Discussion]]</span>
 					</span>
 					<span component="topic/ignored" class="badge border border-gray-300 text-body {{{ if !./ignored }}}hidden{{{ end }}}">
 						<i class="fa fa-eye-slash"></i>

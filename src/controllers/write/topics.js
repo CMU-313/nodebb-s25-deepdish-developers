@@ -7,6 +7,7 @@ const topics = require('../../topics');
 const helpers = require('../helpers');
 const middleware = require('../../middleware');
 const uploadsController = require('../uploads');
+const { type } = require('jquery');
 
 const Topics = module.exports;
 
@@ -17,7 +18,15 @@ Topics.get = async (req, res) => {
 Topics.create = async (req, res) => {
 	const id = await lockPosting(req, '[[error:already-posting]]');
 	try {
-		const payload = await api.topics.create(req, req.body);
+		const payload = await api.topics.create(req, {
+			title: req.body.title,
+			cid: req.body.cid,
+			content: req.body.content,
+			uid: req.user.uid,
+			tags: req.body.tags,
+			type: req.body.type || "discussion",
+		});
+		
 		if (payload.queued) {
 			helpers.formatApiResponse(202, res, payload);
 		} else {

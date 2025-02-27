@@ -23,13 +23,13 @@
 		</li>
 
 		<li>
-			<a component="topic/toggleImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+			<a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
 				<i class="fa fa-fw fa-star-o text-secondary"></i> [[topic:thread-tools.markImportant]]
 			</a>
 		</li>
 
 		<li>
-			<a component="topic/toggleNotImportant" href="#" class="hidden dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+			<a component="topic/unmarkImportant" href="#" class="hidden dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
 				<i class="fa fa-fw fa-star text-secondary"></i> [[topic:thread-tools.markNotImportant]]
 			</a>
 		</li>

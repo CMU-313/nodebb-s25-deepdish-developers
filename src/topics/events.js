@@ -68,6 +68,14 @@ Events._types = {
 		icon: 'fa-code-fork',
 		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-forked-topic', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
 	},
+	markQuestion: {
+		icon: 'fa fa-question-circle',
+		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-marked-question', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
+	},
+	markDiscussion: {
+		icon: 'fa fa-comments',
+		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-marked-discussion', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
+	},
 };
 
 Events.init = async () => {

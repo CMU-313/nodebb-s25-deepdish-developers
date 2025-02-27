@@ -33,6 +33,7 @@
     "tools": "Tools",
     "locked": "Locked",
     "pinned": "Pinned",
+    "important": "Important",
     "pinned-with-expiry": "Pinned until %1",
     "scheduled": "Scheduled",
     "deleted": "Deleted",

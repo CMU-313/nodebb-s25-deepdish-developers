@@ -391,6 +391,20 @@ define('forum/topic/threadTools', [
 		posts.addTopicEvents(data.events);
 	};
 
+	ThreadTools.setImportantState = function (data) {
+		const threadEl = components.get('topic');
+		if (parseInt(data.tid, 10) !== parseInt(threadEl.attr('data-tid'), 10)) {
+			return;
+		}
+		const icon = $('[component="topic/labels"] [component="topic/important"]');
+		if (data.isImportant) {
+			icon.removeClass('hidden');
+		} else {
+			icon.addClass('hidden');
+		}
+	};
+
+
 	function setFollowState(state) {
 		const titles = {
 			follow: '[[topic:watching]]',

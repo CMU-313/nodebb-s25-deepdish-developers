@@ -14,7 +14,7 @@ define('forum/category/tools', [
 
 	CategoryTools.init = function () {
 		topicSelect.init(updateDropdownOptions);
-
+git
 		handlePinnedTopicSort();
 
 		$('[component="category/topic"]').each((index, el) => {
@@ -53,6 +53,16 @@ define('forum/category/tools', [
 
 		components.get('topic/unpin').on('click', function () {
 			categoryCommand('del', '/pin', 'unpin', onCommandComplete);
+			return false;
+		});
+
+		components.get('topic/markImportant').on('click', function () {
+			categoryCommand('put', '/important', 'markImportant', onCommandComplete);
+			return false;
+		});
+
+		components.get('topic/unmarkImportant').on('click', function () {
+			categoryCommand('del', '/important', 'unmarkImportant', onCommandComplete);
 			return false;
 		});
 
@@ -137,6 +147,8 @@ define('forum/category/tools', [
 		socket.on('event:topic_pinned', setPinnedState);
 		socket.on('event:topic_unpinned', setPinnedState);
 		socket.on('event:topic_moved', onTopicMoved);
+		socket.on('event:topic_marked_important', setImportantState);
+		socket.on('event:topic_unmarked_important', setImportantState);
 	};
 
 	function categoryCommand(method, path, command, onComplete) {
@@ -168,6 +180,11 @@ define('forum/category/tools', [
 				threadTools.requestPinExpiry(body, execute.bind(null, true));
 				break;
 
+			case 'markImportant':
+			case 'unmarkImportant':
+				execute(true);
+				break;
+
 			default:
 				execute(true);
 				break;
@@ -183,6 +200,8 @@ define('forum/category/tools', [
 		socket.removeListener('event:topic_pinned', setPinnedState);
 		socket.removeListener('event:topic_unpinned', setPinnedState);
 		socket.removeListener('event:topic_moved', onTopicMoved);
+		socket.removeListener('event:topic_marked_important', setImportantState);
+		socket.removeListener('event:topic_unmarked_important', setImportantState);
 	};
 
 	function closeDropDown() {
@@ -213,6 +232,8 @@ define('forum/category/tools', [
 		const isAnyLocked = isAny(isTopicLocked, tids);
 		const isAnyScheduled = isAny(isTopicScheduled, tids);
 		const areAllScheduled = areAll(isTopicScheduled, tids);
+		const isAnyImportant = isAny(isTopicImportant, tids);
+
 
 		components.get('topic/delete').toggleClass('hidden', isAnyDeleted);
 		components.get('topic/restore').toggleClass('hidden', isAnyScheduled || !isAnyDeleted);
@@ -223,6 +244,10 @@ define('forum/category/tools', [
 
 		components.get('topic/pin').toggleClass('hidden', areAllScheduled || isAnyPinned);
 		components.get('topic/unpin').toggleClass('hidden', areAllScheduled || !isAnyPinned);
+
+		components.get('topic/markImportant').toggleClass('hidden', areAllScheduled || isAnyImportant);
+		components.get('topic/unmarkImportant').toggleClass('hidden', areAllScheduled || !isAnyImportant);
+
 
 		components.get('topic/merge').toggleClass('hidden', isAnyScheduled);
 	}
@@ -257,6 +282,10 @@ define('forum/category/tools', [
 		return getTopicEl(tid).hasClass('pinned');
 	}
 
+	function isTopicImportant(tid) {
+		return getTopicEl(tid).hasClass('important');
+	}
+
 	function isTopicScheduled(tid) {
 		return getTopicEl(tid).hasClass('scheduled');
 	}
@@ -276,6 +305,12 @@ define('forum/category/tools', [
 		topic.toggleClass('pinned', data.isPinned);
 		topic.find('[component="topic/pinned"]').toggleClass('hidden', !data.isPinned);
 		ajaxify.refresh();
+	}
+
+	function setImportantState(data) {
+		const topic = getTopicEl(data.tid);
+		topic.toggleClass('important', data.isImportant);
+		topic.find('[component="topic/important"]').toggleClass('hidden', !data.isImportant);
 	}
 
 	function setLockedState(data) {

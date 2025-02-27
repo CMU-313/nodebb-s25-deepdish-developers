@@ -233,7 +233,7 @@ module.exports = function (Topics) {
 	};
 
 	topicTools.markImportant = async function (tid, uid) {
-		return await toggleImportant(tid,uid,true);
+		return await toggleImportant(tid, uid, true);
 	};
 	topicTools.unmarkImportant = async function (tid, uid) {
 		return await toggleImportant(tid, uid, false);

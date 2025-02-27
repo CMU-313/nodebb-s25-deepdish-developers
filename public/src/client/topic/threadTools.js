@@ -256,6 +256,10 @@ define('forum/topic/threadTools', [
 			case 'pin':
 				ThreadTools.requestPinExpiry(body, execute.bind(null, true));
 				break;
+			case 'markImportant':
+			case 'unmarkImportant':
+				execute(true);
+				break;
 
 			default:
 				execute(true);

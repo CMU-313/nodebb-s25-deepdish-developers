@@ -61,6 +61,16 @@ define('forum/topic/threadTools', [
 			return false;
 		});
 
+		topicContainer.on('click', '[component="topic/markImportant"]', function () {
+			topicCommand('put', '/important', 'markImportant');
+			return false;
+		});
+
+		topicContainer.on('click', '[component="topic/unmarkImportant"]', function () {
+			topicCommand('del', '/important', 'unmarkImportant');
+			return false;
+		});
+
 		topicContainer.on('click', '[component="topic/mark-unread"]', function () {
 			topicCommand('del', '/read', undefined, () => {
 				if (app.previousUrl && !app.previousUrl.match('^/topic')) {

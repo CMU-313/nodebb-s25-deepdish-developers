@@ -1,0 +1,64 @@
+put:
+  tags:
+    - topics
+  summary: Mark a topic as Important
+  description: This operation marks an existing topic as Important.
+  parameters:
+    - in: path
+      name: tid
+      schema:
+        type: string
+      required: true
+      description: A valid topic id
+      example: 1
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            expiry:
+              type: number
+              description: A UNIX timestamp representing the moment the topic will be unmarked as Important.
+              example: 1585337827953
+  responses:
+    '200':
+      description: Topic successfully marked as Important
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: ../../../components/schemas/Status.yaml#/Status
+              response:
+                type: object
+                properties: {}
+
+delete:
+  tags:
+    - topics
+  summary: Unmark a topic as Important
+  description: This operation unmarks a topic as Important.
+  parameters:
+    - in: path
+      name: tid
+      schema:
+        type: string
+      required: true
+      description: A valid topic id
+      example: 1
+  responses:
+    '200':
+      description: Topic successfully unmarked as Important
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: ../../../components/schemas/Status.yaml#/Status
+              response:
+                type: object
+                properties: {}

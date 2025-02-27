@@ -14,7 +14,6 @@ define('forum/category/tools', [
 
 	CategoryTools.init = function () {
 		topicSelect.init(updateDropdownOptions);
-git
 		handlePinnedTopicSort();
 
 		$('[component="category/topic"]').each((index, el) => {

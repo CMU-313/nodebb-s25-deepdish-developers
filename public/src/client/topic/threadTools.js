@@ -62,12 +62,12 @@ define('forum/topic/threadTools', [
 		});
 
 		topicContainer.on('click', '[component="topic/markImportant"]', function () {
-			topicCommand('put', '/important', 'markImportant');
+			topicCommand('put', '/markImportant', 'markImportant');
 			return false;
 		});
 
 		topicContainer.on('click', '[component="topic/unmarkImportant"]', function () {
-			topicCommand('del', '/important', 'unmarkImportant');
+			topicCommand('del', '/markImportant', 'unmarkImportant');
 			return false;
 		});
 
@@ -396,8 +396,8 @@ define('forum/topic/threadTools', [
 		if (parseInt(data.tid, 10) !== parseInt(threadEl.attr('data-tid'), 10)) {
 			return;
 		}
-		const icon = $('[component="topic/labels"] [component="topic/important"]');
-		if (data.isImportant) {
+		const icon = $('[component="topic/labels"] [component="topic/markImportant"]');
+		if (data.isMarkImportant) {
 			icon.removeClass('hidden');
 		} else {
 			icon.addClass('hidden');

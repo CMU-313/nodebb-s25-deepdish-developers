@@ -56,12 +56,12 @@ define('forum/category/tools', [
 		});
 
 		components.get('topic/markImportant').on('click', function () {
-			categoryCommand('put', '/important', 'markImportant', onCommandComplete);
+			categoryCommand('put', '/markImportant', 'markImportant', onCommandComplete);
 			return false;
 		});
 
 		components.get('topic/unmarkImportant').on('click', function () {
-			categoryCommand('del', '/important', 'unmarkImportant', onCommandComplete);
+			categoryCommand('del', '/markImportant', 'unmarkImportant', onCommandComplete);
 			return false;
 		});
 
@@ -282,7 +282,7 @@ define('forum/category/tools', [
 	}
 
 	function isTopicImportant(tid) {
-		return getTopicEl(tid).hasClass('important');
+		return getTopicEl(tid).hasClass('markImportant');
 	}
 
 	function isTopicScheduled(tid) {
@@ -308,8 +308,8 @@ define('forum/category/tools', [
 
 	function setImportantState(data) {
 		const topic = getTopicEl(data.tid);
-		topic.toggleClass('important', data.isImportant);
-		topic.find('[component="topic/important"]').toggleClass('hidden', !data.isImportant);
+		topic.toggleClass('markImportant', data.isMarkImportant);
+		topic.find('[component="topic/markImportant"]').toggleClass('hidden', !data.isMarkImportant);
 	}
 
 	function setLockedState(data) {

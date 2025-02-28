@@ -15,12 +15,12 @@
 	<a component="topic/unpin" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if !pinned }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-thumb-tack fa-rotate-90 text-secondary"></i> [[topic:thread-tools.unpin]]</a>
 </li>
 
-<li {{{ if important }}}hidden{{{ end }}}>
-    <a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if important }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star-o text-secondary"></i> [[topic:thread-tools.markImportant]]</a>
+<li {{{ if markImportant }}}hidden{{{ end }}}>
+    <a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star-o text-secondary"></i> [[topic:thread-tools.markImportant]]</a>
 </li>
 
-<li {{{ if !important }}}hidden{{{ end }}}>
-    <a component="topic/unmarkImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if !important }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star text-secondary"></i> [[topic:thread-tools.markNotImportant]]</a>
+<li {{{ if markImportant }}}hidden{{{ end }}}>
+    <a component="topic/unmarkImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if !markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star text-secondary"></i> [[topic:thread-tools.unmarkImportant]]</a>
 </li>
 
 

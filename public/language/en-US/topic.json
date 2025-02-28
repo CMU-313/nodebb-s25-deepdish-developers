@@ -99,7 +99,7 @@
     "thread-tools.pin": "Pin Topic",
     "thread-tools.unpin": "Unpin Topic",
     "thread-tools.markImportant": "Mark Important",
-    "thread-tools.markNotImportant": "Unmark Important",
+    "thread-tools.unmarkImportant": "Unmark Important",
     "thread-tools.lock": "Lock Topic",
     "thread-tools.unlock": "Unlock Topic",
     "thread-tools.move": "Move Topic",

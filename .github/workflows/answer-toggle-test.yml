@@ -23,4 +23,4 @@ jobs:
         run: npm install
 
       - name: Run Unit Test for Answered Toggle Button
-        run: npm test -- test/answer-toggle-test.js
+        run: npx mocha test/answer-toggle-test.js

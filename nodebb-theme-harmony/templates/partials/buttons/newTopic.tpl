@@ -1,11 +1,7 @@
 <noscript><div class="dropdown" component="category-selector"></noscript>
-
-<!-- New Topic Button & Thread Type Dropdown -->
-<div class="d-flex align-items-center">
-    <!-- New Topic Button -->
-    <button component="category/post" for="category-dropdown-check" class="btn btn-primary btn-sm text-nowrap me-2" id="new_topic" role="button">
-        [[category:new-topic-button]]
-    </button>
+<button component="category/post" for="category-dropdown-check" class="btn btn-primary btn-sm text-nowrap" id="new_topic" role="button">
+	[[category:new-topic-button]]
+</button>
 
     <!-- Thread Type Dropdown -->
     <div class="dropdown">
@@ -21,6 +17,7 @@
 
 <!-- Hidden Input to Store Selected Type -->
 <input type="hidden" id="thread-type" value="discussion">
+
 <noscript>
 	<input type="checkbox" class="hidden" id="category-dropdown-check" aria-hidden="true">
 	<ul component="category/list" class="dropdown-menu p-1 text-sm category-dropdown-menu ghost-scrollbar" role="menu">

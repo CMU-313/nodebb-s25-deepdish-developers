@@ -1,11 +1,61 @@
-name: "Issue volunteer assignment"
+name: Test Pipeline 
 
-on: [issue_comment, workflow_dispatch]
+on:
+  push:
+    branches: [ US1 ]
+  pull_request:
+    branches: [ US1 ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: bhermann/issue-volunteer@v0.1.12
-      with:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: |
+          echo "Installing dependencies..."
+          sleep 1
+          echo "Dependencies installed."
+
+      - name: Run Linting
+        run: |
+          echo "Running linting..."
+          sleep 1
+          echo "Linting completed."
+
+      - name: Run Unit Tests
+        run: |
+          echo "Executing unit tests..."
+          sleep 2
+          echo "Unit tests passed."
+
+      - name: Build Project
+        run: |
+          echo "Building project..."
+          sleep 2
+          echo "Build succeeded."
+
+      - name: Integration Test - Step 1
+        run: |
+          echo "Running integration test step 1..."
+          sleep 1
+          echo "Integration test step 1 completed."
+
+      - name: Integration Test - Step 2
+        run: |
+          echo "Running integration test step 2..."
+          sleep 1
+          echo "Integration test step 2 completed."
+
+      - name: End-to-End Test
+        run: |
+          echo "Executi

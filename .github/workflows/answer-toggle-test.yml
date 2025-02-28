@@ -1,40 +1,11 @@
-name: Run Answer Toggle Unit Test
+name: "Issue volunteer assignment"
 
-on:
-  push:
-    branches: [ US1 ]
-  workflow_dispatch:
+on: [issue_comment, workflow_dispatch]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-
-      - name: Set up NodeBB
-        run: |
-          ./nodebb setup '{
-            "url": "http://localhost:4567",
-            "admin:username": "admin",
-            "admin:password": "admin123",
-            "admin:password:confirm": "admin123",
-            "admin:email": "admin@example.com",
-            "database": "redis",
-            "redis:host": "127.0.0.1",
-            "redis:port": "6379",
-            "redis:password": ""
-          }'
-
-      - name: Build NodeBB
-        run: ./nodebb build
-
-      - name: Run Answer Toggle Unit Test
-        run: npx mocha test/answer-toggle-test.js
+    - uses: bhermann/issue-volunteer@v0.1.12
+      with:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

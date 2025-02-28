@@ -216,3 +216,19 @@ Topics.bump = async (req, res) => {
 
 	helpers.formatApiResponse(200, res);
 };
+
+Topics.updateType = async (req, res) => {
+    const tid = req.params.tid;
+    const type = req.body.type;
+
+    if (!['question', 'discussion'].includes(type)) {
+        return helpers.formatApiResponse(400, res, { error: 'Invalid topic type' });
+    }
+
+    try {
+        await db.setObjectField(`topic:${tid}`, 'type', type);
+        helpers.formatApiResponse(200, res, { success: true, type });
+    } catch (err) {
+        helpers.formatApiResponse(500, res, { error: 'Failed to update topic type' });
+    }
+};

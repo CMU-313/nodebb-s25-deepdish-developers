@@ -29,11 +29,6 @@
           <span class="topic-title" component="topic/title">{title}</span>
           <!-- Insert Answered/Unanswered Label -->
           <div class="answered-toggle">
-            {{#if topic.answered}}
-              <span class="answered-label text-success">Answered</span>
-            {{else}}
-              <span class="answered-label text-danger">Unanswered</span>
-            {{/if}}
             {{#if showToggle}}
               {{#if topic.answered}}
                 <button id="answeredToggleBtn" class="btn btn-sm btn-link">Mark as Unanswered</button>

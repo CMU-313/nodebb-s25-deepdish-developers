@@ -56,6 +56,14 @@
 			<div class="d-flex gap-2 justify-content-end align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>
 		</div>
 
+		<div class="dropdown-item rounded-1 d-flex align-items-center gap-2">
+			<label for="topicType">Topic Type</label>
+			<select id="topicType" name="topicType" class="form-control">
+				<option value="discussion">Discussion</option>
+				<option value="question">Question</option>
+			</select>
+		</div>
+
 		<div class="row mb-4 mb-lg-0">
 			<div class="topic {{{ if widgets.sidebar.length }}}col-lg-9 col-sm-12{{{ else }}}col-lg-12{{{ end }}}">
 				<!-- IMPORT partials/post_bar.tpl -->

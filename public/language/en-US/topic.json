@@ -116,6 +116,8 @@
     "thread-tools.restore-confirm": "Are you sure you want to restore this topic?",
     "thread-tools.purge": "Purge Topic",
     "thread-tools.purge-confirm": "Are you sure you want to purge this topic?",
+    "thread-tools.markDiscussion": "Mark as Discussion",
+    "thread-tools.markQuestion": "Mark as Question",
     "thread-tools.merge-topics": "Merge Topics",
     "thread-tools.merge": "Merge Topic",
     "topic-move-success": "This topic will be moved to \"%1\" shortly. Click here to undo.",

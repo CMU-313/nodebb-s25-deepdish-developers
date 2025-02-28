@@ -718,6 +718,18 @@ describe('Topic\'s', () => {
 			assert.strictEqual(pinned, 0);
 		});
 
+		it('should mark topic as question', async () => {
+			await apiTopics.pin({ uid: adminUid }, { tids: [newTopic.tid], cid: categoryObj.cid });
+			const isQuestion = await topics.getTopicField(newTopic.tid, 'isQuestion');
+			assert.strictEqual(isQuestion, 1);
+		});
+
+		it('should maek topic as discussion', async () => {
+			await apiTopics.unpin({ uid: adminUid }, { tids: [newTopic.tid], cid: categoryObj.cid });
+			const isQuestion = await topics.getTopicField(newTopic.tid, 'isQuestion');
+			assert.strictEqual(isQuestion, 0);
+		});
+
 		it('should move all topics', (done) => {
 			socketTopics.moveAll({ uid: adminUid }, { cid: moveCid, currentCid: categoryObj.cid }, (err) => {
 				assert.ifError(err);

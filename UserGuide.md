@@ -13,6 +13,8 @@ As a student, I want to mark threads as a question or discussion so that it is e
 4. Click on Topic Tools
 5. Click on "Mark as Discussion"
 
+Unit tests are located in test/topics.js 
+
 ## User Story 3
 -As an instructor (administrator), I want topics to be able to be marked as important, so I can important threads for students to read.
 Feature guide for User Story 3, marking topics as important

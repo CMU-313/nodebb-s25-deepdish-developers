@@ -36,6 +36,7 @@ const routes = require('./routes');
 const auth = require('./routes/authentication');
 
 const helpers = require('./helpers');
+const s = require('connect-redis');
 
 if (nconf.get('ssl')) {
 	server = require('https').createServer({

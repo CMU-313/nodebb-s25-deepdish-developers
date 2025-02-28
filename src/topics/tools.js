@@ -251,7 +251,7 @@ module.exports = function (Topics) {
 
 		await Topics.setTopicField(tid, 'markImportant', important ? 1 : 0);
 
-		topicData.events = await Topics.events.log(tid, { type: important ? 'markImportant' : 'unmarkedImportant', uid });
+		topicData.events = await Topics.events.log(tid, { type: important ? 'markImportant' : 'unmarkImportant', uid });
 
 		topicData.markImportant = important;
 

@@ -42,7 +42,7 @@ Events._types = {
 	},
 	unmarkImportant: {
 		icon: 'fa-star-o',
-		translation: async (event, language) => translateSimple(event, language, 'topic:user-unmarkedImportant-topic'),
+		translation: async (event, language) => translateSimple(event, language, 'topic:user-unmarkImportant-topic'),
 	},
 	lock: {
 		icon: 'fa-lock',

@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install Dependencies
+        run: npm install
 
       - name: Run Unit Test for Answered Toggle Button
         run: npx mocha test/answer-toggle-test.js

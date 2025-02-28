@@ -1,10 +1,9 @@
-name: Run Unit Test
+name: Run Answer Toggle Unit Test
 
 on:
   push:
     branches: [ US1 ]
-  pull_request:
-    branches: [ US1 ]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -19,8 +18,23 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install Dependencies
-        run: npm install
 
-      - name: Run Unit Test for Answered Toggle Button
+      - name: Set up NodeBB
+        run: |
+          ./nodebb setup '{
+            "url": "http://localhost:4567",
+            "admin:username": "admin",
+            "admin:password": "admin123",
+            "admin:password:confirm": "admin123",
+            "admin:email": "admin@example.com",
+            "database": "redis",
+            "redis:host": "127.0.0.1",
+            "redis:port": "6379",
+            "redis:password": ""
+          }'
+
+      - name: Build NodeBB
+        run: ./nodebb build
+
+      - name: Run Answer Toggle Unit Test
         run: npx mocha test/answer-toggle-test.js

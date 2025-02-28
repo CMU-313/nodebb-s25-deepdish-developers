@@ -16,11 +16,11 @@
 </li>
 
 <li {{{ if markImportant }}}hidden{{{ end }}}>
-    <a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star-o text-secondary"></i> [[topic:thread-tools.markImportant]]</a>
+    <a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star-o text-secondary"></i> Mark Important</a>
 </li>
 
 <li {{{ if markImportant }}}hidden{{{ end }}}>
-    <a component="topic/unmarkImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if !markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star text-secondary"></i> [[topic:thread-tools.unmarkImportant]]</a>
+    <a component="topic/unmarkImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2 {{{ if !markImportant }}}hidden{{{ end }}}" role="menuitem"><i class="fa fa-fw fa-star text-secondary"></i> Unmark Important </a>
 </li>
 
 

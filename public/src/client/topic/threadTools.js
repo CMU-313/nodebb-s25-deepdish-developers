@@ -61,6 +61,18 @@ define('forum/topic/threadTools', [
 			return false;
 		});
 
+		topicContainer.on('click', '[component="topic/mark-as-question"]', function () {
+			const tid = $(this).attr('data-tid');
+		
+			bootbox.confirm('Are you sure you want to mark this topic as a question?', function (confirm) {
+				if (confirm) {
+					markTopicAsQuestion(tid);
+				}
+			});
+		
+			return false;
+		});
+		
 		topicContainer.on('click', '[component="topic/mark-unread"]', function () {
 			topicCommand('del', '/read', undefined, () => {
 				if (app.previousUrl && !app.previousUrl.match('^/topic')) {
@@ -215,7 +227,18 @@ define('forum/topic/threadTools', [
 			dropdownMenu.html(helpers.generatePlaceholderWave([8, 8, 8]));
 			const data = await socket.emit('topics.loadTopicTools', { tid: ajaxify.data.tid, cid: ajaxify.data.cid });
 			const html = await app.parseAndTranslate('partials/topic/topic-menu-list', data);
-			$(dropdownMenu).attr('data-loaded', 'true').html(html);
+			
+			// Add this: "Mark as Question" option 
+			const newOption = `
+				<li>
+					<a href="#" component="topic/mark-as-question" data-tid="${ajaxify.data.tid}">
+						<i class="fa fa-question-circle"></i> Mark as Question
+					</a>
+				</li>`;
+			
+			$(dropdownMenu).attr('data-loaded', 'true').html(html + newOption);
+
+
 			hooks.fire('action:topic.tools.load', {
 				element: $(dropdownMenu),
 			});
@@ -252,6 +275,17 @@ define('forum/topic/threadTools', [
 				break;
 		}
 	}
+
+	function markTopicAsQuestion(tid) {
+		api.put(`/topics/${tid}/type`, { type: "question" })
+			.then(() => {
+				alerts.success('This topic has been marked as a question!');
+				$('[component="topic/mark-as-question"]').remove(); 
+				$('[component="topic/labels"]').append('<span class="thread-type badge">🟢 Question</span>');
+			})
+			.catch(alerts.error);
+	}
+	
 
 	ThreadTools.requestPinExpiry = function (body, onSuccess) {
 		app.parseAndTranslate('modals/set-pin-expiry', {}, function (html) {
@@ -375,6 +409,9 @@ define('forum/topic/threadTools', [
 
 		posts.addTopicEvents(data.events);
 	};
+
+
+	
 
 	function setFollowState(state) {
 		const titles = {

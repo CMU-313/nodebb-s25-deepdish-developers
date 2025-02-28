@@ -33,7 +33,14 @@ module.exports = function (Topics) {
 			lastposttime: 0,
 			postcount: 0,
 			viewcount: 0,
+			type: data.type || "discussion" //default to discussion if not explicitly specified 
 		};
+
+		// testing 
+		console.log("🚀 New Topic Data:", topicData);  // Debugging log
+		await db.setObject(`topic:${topicData.tid}`, topicData);
+		console.log("✅ Topic saved in DB with type:", topicData.type);
+		// 
 
 		if (Array.isArray(data.tags) && data.tags.length) {
 			topicData.tags = data.tags.join(',');

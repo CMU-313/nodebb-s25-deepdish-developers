@@ -60,6 +60,16 @@ define('forum/topic/threadTools', [
 			topicCommand('del', '/pin', 'unpin');
 			return false;
 		});
+    
+		topicContainer.on('click', '[component="topic/markImportant"]', function () {
+			topicCommand('put', '/markImportant', 'markImportant');
+			return false;
+		});
+
+		topicContainer.on('click', '[component="topic/unmarkImportant"]', function () {
+			topicCommand('del', '/markImportant', 'unmarkImportant');
+			return false;
+		});
 
 		topicContainer.on('click', '[component="topic/mark-as-question"]', function () {
 			const tid = $(this).attr('data-tid');
@@ -270,6 +280,11 @@ define('forum/topic/threadTools', [
 				ThreadTools.requestPinExpiry(body, execute.bind(null, true));
 				break;
 
+			case 'markImportant':
+			case 'unmarkImportant':
+				execute(true);
+				break;
+
 			default:
 				execute(true);
 				break;
@@ -422,7 +437,6 @@ define('forum/topic/threadTools', [
 			icon.addClass('hidden');
 		}
 	};
-	
 
 	function setFollowState(state) {
 		const titles = {

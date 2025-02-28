@@ -36,6 +36,14 @@ Events._types = {
 		icon: 'fa-thumb-tack fa-rotate-90',
 		translation: async (event, language) => translateSimple(event, language, 'topic:user-unpinned-topic'),
 	},
+	markImportant: {
+		icon: 'fa-star',
+		translation: async (event, language) => translateSimple(event, language, 'topic:user-markImportant-topic'),
+	},
+	unmarkImportant: {
+		icon: 'fa-star-o',
+		translation: async (event, language) => translateSimple(event, language, 'topic:user-unmarkImportant-topic'),
+	},
 	lock: {
 		icon: 'fa-lock',
 		translation: async (event, language) => translateSimple(event, language, 'topic:user-locked-topic'),

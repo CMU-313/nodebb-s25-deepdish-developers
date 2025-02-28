@@ -18,16 +18,14 @@ module.exports = function () {
 	setupApiRoute(router, 'post', '/:tid', [middleware.checkRequired.bind(null, ['content']), middleware.assert.topic], controllers.write.topics.reply);
 	setupApiRoute(router, 'delete', '/:tid', [...middlewares], controllers.write.topics.purge);
 
-	// Creating api routes to put and delete important topic markings
-	//Chat GPT used to generate but had to modify it slightly
-	setupApiRoute(router, 'put', '/:tid', [...middlewares, middleware.assert.room, middleware.assert.message], controllers.write.topics.messages.markImportant);
-	setupApiRoute(router, 'delete', '/:tid', [...middlewares, middleware.assert.room, middleware.assert.message], controllers.write.topics.messages.unmarkImportant);
-
 	setupApiRoute(router, 'put', '/:tid/state', [...middlewares], controllers.write.topics.restore);
 	setupApiRoute(router, 'delete', '/:tid/state', [...middlewares], controllers.write.topics.delete);
 
 	setupApiRoute(router, 'put', '/:tid/pin', [...middlewares, middleware.assert.topic], controllers.write.topics.pin);
 	setupApiRoute(router, 'delete', '/:tid/pin', [...middlewares], controllers.write.topics.unpin);
+
+	setupApiRoute(router, 'put', '/:tid/markImportant', [...middlewares, middleware.assert.topic], controllers.write.topics.markImportant);
+	setupApiRoute(router, 'delete', '/:tid/markImportant', [...middlewares], controllers.write.topics.unmarkImportant);
 
 	setupApiRoute(router, 'put', '/:tid/lock', [...middlewares], controllers.write.topics.lock);
 	setupApiRoute(router, 'delete', '/:tid/lock', [...middlewares], controllers.write.topics.unlock);

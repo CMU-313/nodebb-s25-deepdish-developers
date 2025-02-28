@@ -239,7 +239,7 @@ module.exports = function (Topics) {
 		return await toggleImportant(tid, uid, false);
 	};
 
-	async function toggleImportant(tid, uid, isImportant) {
+	async function toggleImportant(tid, uid, important) {
 		const topicData = await Topics.getTopicData(tid);
 		if (!topicData) {
 			throw new Error('[[error:no-topic]]');
@@ -249,14 +249,13 @@ module.exports = function (Topics) {
 			throw new Error('[[error:no-privileges]]');
 		}
 
-		await Topics.setTopicField(tid, 'important', isImportant ? 1 : 0);
+		await Topics.setTopicField(tid, 'markImportant', important ? 1 : 0);
 
-		topicData.events = await Topics.events.log(tid, { type: isImportant ? 'mark-important' : 'unmark-important', uid });
+		topicData.events = await Topics.events.log(tid, { type: important ? 'markImportant' : 'unmarkImportant', uid });
 
-		topicData.isImportant = isImportant;
-		topicData.important = isImportant;
+		topicData.markImportant = important;
 
-		plugins.hooks.fire('action:topic.important', { topic: _.clone(topicData), uid });
+		plugins.hooks.fire('action:topic.markImportant', { topic: _.clone(topicData), uid });
 
 		return topicData;
 	}

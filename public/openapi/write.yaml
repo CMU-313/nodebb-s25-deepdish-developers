@@ -146,8 +146,8 @@ paths:
     $ref: 'write/topics/tid/lock.yaml'
   /topics/{tid}/pin:
     $ref: 'write/topics/tid/pin.yaml'
-  /topics/{tid}/important:
-    $ref: 'write/topics/tid/important.yaml'
+  /topics/{tid}/markImportant:
+    $ref: 'write/topics/tid/markImportant.yaml'
   /topics/{tid}/follow:
     $ref: 'write/topics/tid/follow.yaml'
   /topics/{tid}/ignore:

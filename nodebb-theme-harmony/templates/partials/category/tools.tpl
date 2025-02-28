@@ -23,6 +23,18 @@
 		</li>
 
 		<li>
+			<a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+				<i class="fa fa-fw fa-star-o text-secondary"></i> [[topic:thread-tools.markImportant]]
+			</a>
+		</li>
+
+		<li>
+			<a component="topic/unmarkImportant" href="#" class="hidden dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+				<i class="fa fa-fw fa-star text-secondary"></i> [[topic:thread-tools.markNotImportant]]
+			</a>
+		</li>
+
+		<li>
 			<a component="topic/lock" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
 				<i class="fa fa-fw fa-lock text-secondary"></i> [[topic:thread-tools.lock]]
 			</a>

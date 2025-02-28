@@ -232,6 +232,36 @@ module.exports = function (Topics) {
 		);
 	};
 
+	topicTools.markImportant = async function (tid, uid) {
+		return await toggleImportant(tid, uid, true);
+	};
+	topicTools.unmarkImportant = async function (tid, uid) {
+		return await toggleImportant(tid, uid, false);
+	};
+
+	async function toggleImportant(tid, uid, isImportant) {
+		const topicData = await Topics.getTopicData(tid);
+		if (!topicData) {
+			throw new Error('[[error:no-topic]]');
+		}
+
+		if (uid !== 'system' && !await privileges.topics.isAdminOrMod(tid, uid)) {
+			throw new Error('[[error:no-privileges]]');
+		}
+
+		await Topics.setTopicField(tid, 'important', isImportant ? 1 : 0);
+
+		topicData.events = await Topics.events.log(tid, { type: isImportant ? 'mark-important' : 'unmark-important', uid });
+
+		topicData.isImportant = isImportant;
+		topicData.important = isImportant;
+
+		plugins.hooks.fire('action:topic.important', { topic: _.clone(topicData), uid });
+
+		return topicData;
+	}
+
+
 	topicTools.move = async function (tid, data) {
 		const cid = parseInt(data.cid, 10);
 		const topicData = await Topics.getTopicData(tid);

@@ -4,6 +4,15 @@
 ## User Story 1
 As an instructor, I want to mark questions as "answered" or "unanswered," so that students can quickly identify which questions still need attention.
 
+Once NodeBB is launched, I navigate to the Questions section and clicked on the Topic Tools. In the header, I can now see two new buttons labeled "Answered" and "Unanswered". Initially, topics are marked as unanswered.
+
+To update a topic's status, I simply click the "Answered" button to mark it as answered. The system then updates the topic's answered field in the database. Similarly, clicking "Unanswered" reverts the topic to an unanswered state.
+
+For testing, I created two automated tests in the test/answer-toggle-test.js file. These tests simulate the process of marking a topic as answered and then unmarking it, verifying that the correct boolean values are sent and that the database updates accordingly. I believe these tests are sufficient for checking the core functionality, though I recommend further tests on the controller to catch any edge cases.
+
+Automated tests can be found in:
+/home/nodebb-s25-deepdish-developers/test/answer-toggle-test.js
+
 ## User Story 2
 As a student, I want to mark threads as a question or discussion so that it is easier to categorize and navigate conversations based on their purpose and context.
 

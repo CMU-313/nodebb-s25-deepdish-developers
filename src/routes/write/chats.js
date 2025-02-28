@@ -13,10 +13,6 @@ module.exports = function () {
 	setupApiRoute(router, 'get', '/', [...middlewares], controllers.write.chats.list);
 	setupApiRoute(router, 'post', '/', [...middlewares, middleware.checkRequired.bind(null, ['uids'])], controllers.write.chats.create);
 
-	// Creating api routes to put and delete important message markings
-	setupApiRoute(router, 'put', '/:roomId/messages/:mid/important', [...middlewares, middleware.assert.room, middleware.assert.message], controllers.write.chats.messages.markImportant);
-	setupApiRoute(router, 'delete', '/:roomId/messages/:mid/important', [...middlewares, middleware.assert.room, middleware.assert.message], controllers.write.chats.messages.unmarkImportant);
-
 	setupApiRoute(router, 'get', '/unread', [...middlewares], controllers.write.chats.getUnread);
 	setupApiRoute(router, 'put', '/sort', [...middlewares, middleware.checkRequired.bind(null, ['roomIds', 'scores'])], controllers.write.chats.sortPublicRooms);
 

@@ -28,19 +28,20 @@
         <h1 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
           <span class="topic-title" component="topic/title">{title}</span>
           <!-- Insert Answered/Unanswered Label -->
-          {{#if topic.answered}}
-            <span class="answered-label text-success">Answered</span>
-          {{else}}
-            <span class="answered-label text-danger">Unanswered</span>
-          {{/if}}
-          <!-- Insert Toggle Button for Authorized Users -->
-          {{#if showToggle}}
+          <div class="answered-toggle">
             {{#if topic.answered}}
-              <button id="answeredToggleBtn" class="btn btn-sm btn-link">Mark as Unanswered</button>
+              <span class="answered-label text-success">Answered</span>
             {{else}}
-              <button id="answeredToggleBtn" class="btn btn-sm btn-link">Mark as Answered</button>
+              <span class="answered-label text-danger">Unanswered</span>
             {{/if}}
-          {{/if}}
+            {{#if showToggle}}
+              {{#if topic.answered}}
+                <button id="answeredToggleBtn" class="btn btn-sm btn-link">Mark as Unanswered</button>
+              {{else}}
+                <button id="answeredToggleBtn" class="btn btn-sm btn-link">Mark as Answered</button>
+              {{/if}}
+            {{/if}}
+          </div>
         </h1>
         <!-- Modified Topic Header End -->
 

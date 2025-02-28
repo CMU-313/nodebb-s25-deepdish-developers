@@ -37,6 +37,17 @@
 						<i class="fa fa-bell-o"></i>
 						<span>[[topic:watching]]</span>
 					</span>
+<<<<<<< HEAD
+=======
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./question-type }}}hidden{{{ end }}}">
+						<i class="fa fa-question-circle"></i>
+						<span>[[topic:Question]]</span>
+					</span>
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./discussion-type }}}hidden{{{ end }}}">
+						<i class="fa fa-comments"></i>
+						<span>[[topic:Discussion]]</span>
+					</span>
+>>>>>>> 877ff7f3133daeb0cb3a267385bc5f88c250ee5d
 					<span component="topic/ignored" class="badge border border-gray-300 text-body {{{ if !./ignored }}}hidden{{{ end }}}">
 						<i class="fa fa-eye-slash"></i>
 						<span>[[topic:ignoring]]</span>

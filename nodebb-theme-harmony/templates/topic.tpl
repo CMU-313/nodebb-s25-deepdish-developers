@@ -36,6 +36,10 @@
 						<span component="topic/pinned" class="badge badge border border-gray-300 text-body {{{ if (scheduled || !pinned) }}}hidden{{{ end }}}">
 							<i class="fa fa-thumb-tack"></i> {{{ if !pinExpiry }}}[[topic:pinned]]{{{ else }}}[[topic:pinned-with-expiry, {isoTimeToLocaleString(./pinExpiryISO, config.userLang)}]]{{{ end }}}
 						</span>
+						<span component="topic/markImportant" class="badge badge border border-gray-300 text-body {{{ if !markImportant }}}hidden{{{ end }}}">
+    						<i class="fa fa-star"></i> [[topic:markImportant]]
+						</span>
+
 						<span component="topic/locked" class="badge badge border border-gray-300 text-body {{{ if !locked }}}hidden{{{ end }}}">
 							<i class="fa fa-lock"></i> [[topic:locked]]
 						</span>
@@ -50,6 +54,14 @@
 				</div>
 			</div>
 			<div class="d-flex gap-2 justify-content-end align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>
+		</div>
+
+		<div class="dropdown-item rounded-1 d-flex align-items-center gap-2">
+			<label for="topicType">Topic Type</label>
+			<select id="topicType" name="topicType" class="form-control">
+				<option value="discussion">Discussion</option>
+				<option value="question">Question</option>
+			</select>
 		</div>
 
 		<div class="row mb-4 mb-lg-0">

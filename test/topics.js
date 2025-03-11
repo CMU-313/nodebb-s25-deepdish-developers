@@ -200,6 +200,24 @@ describe('Topic\'s', () => {
 			assert.strictEqual(replyResult.body.response.user.username, '[[global:guest]]');
 		});
 
+		//Testing API call for marking a post as important
+		it('should allow an admin to mark a post as important', async () => {
+			const result = await api.topics.markImportant({ tid: [req.params.tid] });
+			assert.strictEqual(result.success, true, 'Failed to mark post as important');
+	
+			const updatedPost = await api.topics.get({ tid: [req.params.tid] });
+			assert.strictEqual(updatedPost.important, true, 'Post was not marked as important');
+		});
+
+		//Testing API call for unmarking a post as important
+		it('should allow an admin to unmark a post as important', async () => {
+			const result = await topics.unmarkImportant({ tid: [req.params.tid] });
+			assert.strictEqual(result.success, true, 'Failed to unmark post as important');
+	
+			const updatedPost = await topics.get({ tid: [req.params.tid] });
+			assert.strictEqual(updatedPost.important, false, 'Post was not unmarked as important');
+		});
+
 		it('should post a topic/reply as guest with handle if guest group has privileges', async () => {
 			const categoryObj = await categories.create({
 				name: 'Test Category',
@@ -698,6 +716,18 @@ describe('Topic\'s', () => {
 			await apiTopics.unpin({ uid: adminUid }, { tids: [newTopic.tid], cid: categoryObj.cid });
 			const pinned = await topics.getTopicField(newTopic.tid, 'pinned');
 			assert.strictEqual(pinned, 0);
+		});
+
+		it('should mark topic as question', async () => {
+			await apiTopics.pin({ uid: adminUid }, { tids: [newTopic.tid], cid: categoryObj.cid });
+			const isQuestion = await topics.getTopicField(newTopic.tid, 'isQuestion');
+			assert.strictEqual(isQuestion, 1);
+		});
+
+		it('should maek topic as discussion', async () => {
+			await apiTopics.unpin({ uid: adminUid }, { tids: [newTopic.tid], cid: categoryObj.cid });
+			const isQuestion = await topics.getTopicField(newTopic.tid, 'isQuestion');
+			assert.strictEqual(isQuestion, 0);
 		});
 
 		it('should move all topics', (done) => {

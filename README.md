@@ -5,7 +5,8 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CMU-313_NodeBB&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=CMU-313_NodeBB)
 
 ## Team Deepdish Developers
-Sidney Ozcan, Jacob Franze, Michelle Bryson, Yining He, Yuqi Zou
+#### Sidney Ozcan, Jacob Franze, Michelle Bryson, Yining He, Yuqi Zou
+
 
 [**NodeBB Forum Software**](https://nodebb.org) is powered by Node.js and supports either Redis, MongoDB, or a PostgreSQL database. It utilizes web sockets for instant interactions and real-time notifications. NodeBB takes the best of the modern web: real-time streaming discussions, mobile responsiveness, and rich RESTful read/write APIs, while staying true to the original bulletin board/forum format &rarr; categorical hierarchies, local user accounts, and asynchronous messaging.
 

@@ -72,4 +72,5 @@ link-plugins.sh
 test.sh
 
 .docker/**
-!**/.gitkeep
+!**/.gitkeepdump.rdb
+dump.rdb

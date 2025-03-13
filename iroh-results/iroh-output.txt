@@ -1,0 +1,7 @@
+
+Starting NodeBB
+  "./nodebb stop" to stop the NodeBB server
+  "./nodebb log" to view server output
+  "./nodebb help" for more commands
+
+Process "2411" from pidfile already running, exiting

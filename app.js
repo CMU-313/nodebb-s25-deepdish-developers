@@ -16,6 +16,17 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+const iroh = require('iroh');
+
+console.log("Iroh tracking started...");
+
+// Check if Iroh provides tracking functionality
+if (iroh.startTracking) {
+    iroh.startTracking();
+    console.log("Iroh is tracking runtime behavior...");
+} else {
+    console.log("Iroh does not provide a tracking function.");
+}
 
 'use strict';
 

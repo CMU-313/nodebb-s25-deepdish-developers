@@ -16,17 +16,32 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-const iroh = require('iroh');
+const Iroh = require('iroh');
 
-console.log("Iroh tracking started...");
+console.log("Initializing Iroh.js...");
 
-// Check if Iroh provides tracking functionality
-if (iroh.startTracking) {
-    iroh.startTracking();
-    console.log("Iroh is tracking runtime behavior...");
-} else {
-    console.log("Iroh does not provide a tracking function.");
+// Attach Iroh.js to dynamically analyze runtime behavior
+const irohInstance = new Iroh.Stage("runtime-analysis");
+
+// Function to wrap execution tracking
+function analyzeFunction(fn, name = "anonymous") {
+    return function (...args) {
+        console.log(`Iroh is tracking function: ${name}`);
+        const result = fn(...args);
+        console.log(`Function ${name} executed with result:`, result);
+        return result;
+    };
 }
+
+// Example: Wrap a core function (Modify this to wrap NodeBB functions)
+const originalRequire = require;
+require = analyzeFunction(originalRequire, "require");
+
+// Log that Iroh.js is active
+console.log("Iroh.js is running and tracking function calls...");
+
+
+
 
 'use strict';
 

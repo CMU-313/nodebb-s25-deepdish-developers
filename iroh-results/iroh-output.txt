@@ -1,7 +1,24 @@
-
-Starting NodeBB
-  "./nodebb stop" to stop the NodeBB server
-  "./nodebb log" to view server output
-  "./nodebb help" for more commands
-
-Process "2411" from pidfile already running, exiting
+✅ Iroh has been successfully imported!
+Available functions: [
+  'scope',      'stage',   'state',
+  'instance',   'stages',  'THIS',
+  'UNARY',      'UPDATE',  'BINARY',
+  'LOGICAL',    'TERNARY', 'ASSIGN',
+  'ALLOC',      'MEMBER',  'LITERAL',
+  'IDENTIFIER', 'TRY',     'CATCH',
+  'FINALLY',    'OP_NEW',  'VAR',
+  'IF',         'ELSE',    'SWITCH',
+  'CASE',       'BREAK',   'CONTINUE',
+  'LOOP',       'CALL',    'FUNCTION',
+  'BLOCK',      'PROGRAM', 'METHOD',
+  'SUPER',      'Stage'
+]
+❌ Iroh execution failed: TypeError: iroh.stage is not a function
+    at Object.<anonymous> (/home/yiningh/17-313/nodebb-s25-deepdish-developers/iroh-test.js:11:29)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)
+    at node:internal/main/run_main_module:28:49
+✅ Iroh Test Completed.

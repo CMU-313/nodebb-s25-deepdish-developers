@@ -37,7 +37,7 @@ module.exports = function (Topics) {
 		};
 
 		// testing
-		console.log("🚀 New Topic Data:", topicData); // Debugging log
+		console.log('🚀 New Topic Data:', topicData); // Debugging log
 		await db.setObject(`topic:${topicData.tid}`, topicData);
 		console.log('✅ Topic saved in DB with type:', topicData.type);
 

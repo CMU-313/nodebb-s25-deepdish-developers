@@ -295,7 +295,7 @@ define('forum/topic/threadTools', [
 		api.put(`/topics/${tid}/type`, { type: 'question' })
 			.then(() => {
 				alerts.success('This topic has been marked as a question!');
-				$('[component="topic/mark-as-question"]').remove(); 
+				$('[component="topic/mark-as-question"]').remove();
 				$('[component="topic/labels"]').append('<span class="thread-type badge">🟢 Question</span>');
 			})
 			.catch(alerts.error);

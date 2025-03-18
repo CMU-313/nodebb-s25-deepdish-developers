@@ -32,7 +32,7 @@ topicsController.get = async function getTopic(req, res, next) {
 	}
 	let postIndex = parseInt(req.params.post_index, 10) || 1;
 	const topicData = await topics.getTopicData(tid);
-	topicData.type = topicData.type || "discussion"; // Default to "discussion" if not set
+	topicData.type = topicData.type || 'discussion'; // Default to "discussion" if not set
 	if (!topicData) {
 		return next();
 	}
@@ -385,7 +385,7 @@ topicsController.pagination = async function (req, res, next) {
 	}
 	const topic = await topics.getTopicData(tid);
 
-	topic.type = topic.type || "discussion"; // Ensure type is included
+	topic.type = topic.type || 'discussion'; // Ensure type is included
 
 	if (!topic) {
 		return next();

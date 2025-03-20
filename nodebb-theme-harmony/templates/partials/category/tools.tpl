@@ -23,6 +23,27 @@
 		</li>
 
 		<li>
+    <li>
+        <a component="topic/markDiscussion" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+            <i class="fa fa-comments text-secondary"></i> [[topic:thread-tools.markDiscussion]]
+        </a>
+    </li>
+    <li>
+        <a component="topic/markQuestion" href="#" class="hidden dropdown-item rounded-1" role="menuitem">
+            <i class="fa fa-question-circle fa-rotate-90 text-secondary"></i> [[topic:thread-tools.markQuestion]]
+        </a>
+    </li>
+    <li>
+        <a component="topic/markImportant" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+            <i class="fa fa-fw fa-star-o text-secondary"></i> Mark Important
+        </a>
+    </li>
+    <li>
+        <a component="topic/unmarkImportant" href="#" class="hidden dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
+            <i class="fa fa-fw fa-star text-secondary"></i> Unmark Important
+        </a>
+    </li>
+		<li>
 			<a component="topic/lock" href="#" class="dropdown-item rounded-1 d-flex align-items-center gap-2" role="menuitem">
 				<i class="fa fa-fw fa-lock text-secondary"></i> [[topic:thread-tools.lock]]
 			</a>

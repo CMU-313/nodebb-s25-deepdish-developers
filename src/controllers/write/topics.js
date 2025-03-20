@@ -17,7 +17,15 @@ Topics.get = async (req, res) => {
 Topics.create = async (req, res) => {
 	const id = await lockPosting(req, '[[error:already-posting]]');
 	try {
-		const payload = await api.topics.create(req, req.body);
+		const payload = await api.topics.create(req, {
+			title: req.body.title,
+			cid: req.body.cid,
+			content: req.body.content,
+			uid: req.user.uid,
+			tags: req.body.tags,
+			type: req.body.type || 'discussion',
+		});
+
 		if (payload.queued) {
 			helpers.formatApiResponse(202, res, payload);
 		} else {
@@ -74,6 +82,17 @@ Topics.unpin = async (req, res) => {
 	await api.topics.unpin(req, { tids: [req.params.tid] });
 	helpers.formatApiResponse(200, res);
 };
+
+Topics.markImportant = async (req, res) => {
+	await api.topics.markImportant(req, { tids: [req.params.tid] });
+	helpers.formatApiResponse(200, res);
+};
+
+Topics.unmarkImportant = async (req, res) => {
+	await api.topics.unmarkImportant(req, { tids: [req.params.tid] });
+	helpers.formatApiResponse(200, res);
+};
+
 
 Topics.lock = async (req, res) => {
 	await api.topics.lock(req, { tids: [req.params.tid] });
@@ -206,4 +225,20 @@ Topics.bump = async (req, res) => {
 	await api.topics.bump(req, { ...req.params });
 
 	helpers.formatApiResponse(200, res);
+};
+
+Topics.updateType = async (req, res) => {
+	const { tid } = req.params.tid;
+	const { type } = req.body.type;
+
+	if (!['question', 'discussion'].includes(type)) {
+		return helpers.formatApiResponse(400, res, { error: 'Invalid topic type' });
+	}
+
+	try {
+		await db.setObjectField(`topic:${tid}`, 'type', type);
+		helpers.formatApiResponse(200, res, { success: true, type });
+	} catch (err) {
+		helpers.formatApiResponse(500, res, { error: 'Failed to update topic type' });
+	}
 };

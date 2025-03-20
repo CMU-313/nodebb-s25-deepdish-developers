@@ -36,6 +36,14 @@ Events._types = {
 		icon: 'fa-thumb-tack fa-rotate-90',
 		translation: async (event, language) => translateSimple(event, language, 'topic:user-unpinned-topic'),
 	},
+	markImportant: {
+		icon: 'fa-star',
+		translation: async (event, language) => translateSimple(event, language, 'topic:user-markImportant-topic'),
+	},
+	unmarkImportant: {
+		icon: 'fa-star-o',
+		translation: async (event, language) => translateSimple(event, language, 'topic:user-unmarkImportant-topic'),
+	},
 	lock: {
 		icon: 'fa-lock',
 		translation: async (event, language) => translateSimple(event, language, 'topic:user-locked-topic'),
@@ -67,6 +75,14 @@ Events._types = {
 	fork: {
 		icon: 'fa-code-fork',
 		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-forked-topic', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
+	},
+	markQuestion: {
+		icon: 'fa fa-question-circle',
+		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-marked-question', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
+	},
+	markDiscussion: {
+		icon: 'fa fa-comments',
+		translation: async (event, language) => translateEventArgs(event, language, 'topic:user-marked-discussion', renderUser(event), `${relative_path}${event.href}`, renderTimeago(event)),
 	},
 };
 

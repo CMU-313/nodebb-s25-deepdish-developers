@@ -23,11 +23,31 @@
 				<h3 component="topic/header" class="title text-break fs-5 fw-semibold m-0 tracking-tight w-100 {{{ if showSelect }}}me-4 me-lg-0{{{ end }}}">
 					<a class="text-reset" href="{{{ if topics.noAnchor }}}#{{{ else }}}{config.relative_path}/topic/{./slug}{{{ if ./bookmark }}}/{./bookmark}{{{ end }}}{{{ end }}}">{./title}</a>
 				</h3>
-				<span component="topic/labels" class="d-flex flex-wrap gap-1 w-100">
+				<span component="topic/labels" class="d-flex flex-wrap gap-1 w-100">	
+					  <span class="badge border border-gray-300 text-body">
+						<i class="fa fa-comments"></i>
+						{{{ if ./type === "question" }}}
+							<span>🟢 [[topic:question]]</span>
+						{{{ else }}}
+							<span>🔵 [[topic:discussion]]</span>
+						{{{ end }}}
+					</span>
+
 					<span component="topic/watched" class="badge border border-gray-300 text-body {{{ if !./followed }}}hidden{{{ end }}}">
 						<i class="fa fa-bell-o"></i>
 						<span>[[topic:watching]]</span>
 					</span>
+<<<<<<< HEAD
+=======
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./question-type }}}hidden{{{ end }}}">
+						<i class="fa fa-question-circle"></i>
+						<span>[[topic:Question]]</span>
+					</span>
+					<span component="topic/question" class="badge border border-gray-300 text-body {{{ if !./discussion-type }}}hidden{{{ end }}}">
+						<i class="fa fa-comments"></i>
+						<span>[[topic:Discussion]]</span>
+					</span>
+>>>>>>> 877ff7f3133daeb0cb3a267385bc5f88c250ee5d
 					<span component="topic/ignored" class="badge border border-gray-300 text-body {{{ if !./ignored }}}hidden{{{ end }}}">
 						<i class="fa fa-eye-slash"></i>
 						<span>[[topic:ignoring]]</span>
@@ -40,6 +60,12 @@
 						<i class="fa fa-thumb-tack"></i>
 						<span>{{{ if !./pinExpiry }}}[[topic:pinned]]{{{ else }}}[[topic:pinned-with-expiry, {isoTimeToLocaleString(./pinExpiryISO, config.userLang)}]]{{{ end }}}</span>
 					</span>
+					<span component="topic/markImportant" class="badge border border-gray-300 text-body {{{ if !./markImportant }}}hidden{{{ end }}}">
+    					<i class="fa fa-star"></i>
+    					<span>[[topic:markImportant]]</span>
+					</span>
+
+
 					<span component="topic/locked" class="badge border border-gray-300 text-body {{{ if !./locked }}}hidden{{{ end }}}">
 						<i class="fa fa-lock"></i>
 						<span>[[topic:locked]]</span>

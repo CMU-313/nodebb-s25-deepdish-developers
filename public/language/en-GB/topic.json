@@ -112,6 +112,8 @@
 	"thread-tools.unpin": "Unpin Topic",
 	"thread-tools.lock": "Lock Topic",
 	"thread-tools.unlock": "Unlock Topic",
+	"thread-tools.markDiscussion": "Mark as Discussion",
+    "thread-tools.markQuestion": "Mark as Question",
 	"thread-tools.move": "Move Topic",
 	"thread-tools.move-posts": "Move Posts",
 	"thread-tools.move-all": "Move All",

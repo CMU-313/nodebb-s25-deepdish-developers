@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./nodebb-s25-deepdish-developers
+      - name: NPM Install
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
 
       - name: Run Flow
         run: npm run flow
-        working-directory: ./nodebb-s25-deepdish-developers

@@ -21,10 +21,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: NPM Install
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Flow
         run: npm run flow

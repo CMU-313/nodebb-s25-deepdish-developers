@@ -109,14 +109,18 @@ const configExists = file.existsSync(configFile) || (nconf.get('url') && nconf.g
 prestart.loadConfig(configFile);
 prestart.versionCheck();
 
-if (!configExists && process.argv[2] !== 'setup') {
-	require('./setup').webInstall();
-	return;
+function checkConfigAndSetup() {
+    if (!configExists && process.argv[2] !== 'setup') {
+        require('./setup').webInstall();
+        return;
+    }
+
+    if (configExists) {
+        // ...existing code...
+    }
 }
 
-if (configExists) {
-	process.env.CONFIG = configFile;
-}
+checkConfigAndSetup();
 
 // running commands
 program

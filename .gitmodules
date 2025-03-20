@@ -1,0 +1,3 @@
+[submodule "analysis/jalangi2"]
+	path = analysis/jalangi2
+	url = https://github.com/Samsung/jalangi2.git

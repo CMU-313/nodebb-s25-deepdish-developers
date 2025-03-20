@@ -1,0 +1,171 @@
+Initializing Iroh.js...
+Iroh.js is running and tracking function calls...
+Iroh is tracking function: require
+Function require executed with result: {}
+Iroh is tracking function: require
+Function require executed with result: {
+  stores: {},
+  sources: [],
+  version: '0.12.1',
+  Argv: [Getter],
+  Env: [Getter],
+  File: [Getter],
+  Literal: [Getter],
+  Memory: [Getter],
+  key: [Function (anonymous)],
+  path: [Function (anonymous)],
+  loadFiles: [Function (anonymous)],
+  loadFilesSync: [Function (anonymous)],
+  formats: {
+    json: { stringify: [Function: stringify], parse: [Function: parse] },
+    ini: {
+      parse: [Function: decode],
+      decode: [Function: decode],
+      stringify: [Function: encode],
+      encode: [Function: encode],
+      safe: [Function: safe],
+      unsafe: [Function: unsafe]
+    }
+  },
+  Provider: [Function (anonymous)]
+}
+Iroh is tracking function: require
+Function require executed with result: {
+  version: '3.13.0',
+  transports: {
+    Console: [Getter],
+    File: [Getter],
+    Http: [Getter],
+    Stream: [Getter]
+  },
+  config: {
+    cli: { levels: [Object], colors: [Object] },
+    npm: { levels: [Object], colors: [Object] },
+    syslog: { levels: [Object], colors: [Object] },
+    addColors: [Function (anonymous)]
+  },
+  addColors: [Function (anonymous)],
+  format: [Function (anonymous)],
+  createLogger: [Function (anonymous)],
+  Logger: [class Logger extends Transform],
+  ExceptionHandler: [class ExceptionHandler],
+  RejectionHandler: [class RejectionHandler],
+  Container: [class Container],
+  Transport: [Function: TransportStream] {
+    LegacyTransportStream: [Function: LegacyTransportStream]
+  },
+  loggers: Container { loggers: Map(0) {}, options: {} },
+  error: [Function (anonymous)],
+  warn: [Function (anonymous)],
+  info: [Function (anonymous)],
+  http: [Function (anonymous)],
+  verbose: [Function (anonymous)],
+  debug: [Function (anonymous)],
+  silly: [Function (anonymous)],
+  log: [Function (anonymous)],
+  query: [Function (anonymous)],
+  stream: [Function (anonymous)],
+  add: [Function (anonymous)],
+  remove: [Function (anonymous)],
+  clear: [Function (anonymous)],
+  profile: [Function (anonymous)],
+  startTimer: [Function (anonymous)],
+  handleExceptions: [Function (anonymous)],
+  unhandleExceptions: [Function (anonymous)],
+  handleRejections: [Function (anonymous)],
+  unhandleRejections: [Function (anonymous)],
+  configure: [Function (anonymous)],
+  child: [Function (anonymous)],
+  cli: [Function (anonymous)],
+  addRewriter: [Function (anonymous)],
+  addFilter: [Function (anonymous)],
+  clone: [Function (anonymous)],
+  extend: [Function (anonymous)]
+}
+Iroh is tracking function: require
+Function require executed with result: <ref *2> {
+  resolve: [Function: resolve],
+  normalize: [Function: normalize],
+  isAbsolute: [Function: isAbsolute],
+  join: [Function: join],
+  relative: [Function: relative],
+  toNamespacedPath: [Function: toNamespacedPath],
+  dirname: [Function: dirname],
+  basename: [Function: basename],
+  extname: [Function: extname],
+  format: [Function: bound _format],
+  parse: [Function: parse],
+  sep: '/',
+  delimiter: ':',
+  win32: <ref *1> {
+    resolve: [Function: resolve],
+    normalize: [Function: normalize],
+    isAbsolute: [Function: isAbsolute],
+    join: [Function: join],
+    relative: [Function: relative],
+    toNamespacedPath: [Function: toNamespacedPath],
+    dirname: [Function: dirname],
+    basename: [Function: basename],
+    extname: [Function: extname],
+    format: [Function: bound _format],
+    parse: [Function: parse],
+    sep: '\\',
+    delimiter: ';',
+    win32: [Circular *1],
+    posix: [Circular *2],
+    _makeLong: [Function: toNamespacedPath]
+  },
+  posix: [Circular *2],
+  _makeLong: [Function: toNamespacedPath]
+}
+Iroh is tracking function: require
+Function require executed with result: {
+  saveFileToLocal: [Function: wrapperCallback],
+  base64ToLocal: [Function: wrapperCallback],
+  appendToFileName: [Function (anonymous)],
+  allowedExtensions: [Function (anonymous)],
+  exists: [Function: wrapperCallback],
+  existsSync: [Function (anonymous)],
+  delete: [Function: wrapperCallback],
+  link: [Function: wrapperCallback],
+  linkDirs: [Function: wrapperCallback],
+  typeToExtension: [Function (anonymous)],
+  walk: [Function: wrapperCallback]
+}
+Iroh is tracking function: require
+Function require executed with result: {
+  setupWinston: [Function: setupWinston],
+  loadConfig: [Function: loadConfig],
+  versionCheck: [Function: versionCheck]
+}
+2025-03-14T02:23:15.540Z [4567/58610] - [32minfo[39m: NodeBB v3.8.4 Copyright (C) 2013-2025 NodeBB Inc.
+2025-03-14T02:23:15.541Z [4567/58610] - [32minfo[39m: This program comes with ABSOLUTELY NO WARRANTY.
+2025-03-14T02:23:15.541Z [4567/58610] - [32minfo[39m: This is free software, and you are welcome to redistribute it under certain conditions.
+2025-03-14T02:23:15.541Z [4567/58610] - [32minfo[39m: 
+Iroh is tracking function: require
+Function require executed with result: { start: [AsyncFunction (anonymous)] }
+2025-03-14T02:23:15.542Z [4567/58610] - [32minfo[39m: Initializing NodeBB v3.8.4 http://localhost:4567
+2025-03-14T02:23:16.210Z [4567/58610] - [32minfo[39m: [socket.io] Restricting access to origin: http://localhost:*
+2025-03-14T02:23:16.314Z [4567/58610] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2025-03-14T02:23:16.324Z [4567/58610] - [32minfo[39m: [router] Routes added
+2025-03-14T02:23:16.334Z [4567/58610] - [32minfo[39m: 🎉 NodeBB Ready
+2025-03-14T02:23:16.334Z [4567/58610] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2025-03-14T02:23:16.336Z [4567/58610] - [32minfo[39m: 📡 NodeBB is now listening on: 0.0.0.0:4567
+2025-03-14T02:23:16.337Z [4567/58610] - [32minfo[39m: 🔗 Canonical URL: http://localhost:4567
+WARNING: The keyword 'none' must be used as a single argument.
+    ../../../bootstrap/scss/mixins/_box-shadow.scss 10:9   box-shadow()
+    ../../../bootstrap/scss/forms/_form-control.scss 40:7  @import
+    bootstrap/scss/_forms.scss 3:9                         @import
+    - 19:9                                                 root stylesheet
+
+WARNING: The keyword 'none' must be used as a single argument.
+    ../../../bootstrap/scss/mixins/_box-shadow.scss 10:9  box-shadow()
+    ../../../bootstrap/scss/forms/_form-select.scss 32:7  @import
+    bootstrap/scss/_forms.scss 4:9                        @import
+    - 19:9                                                root stylesheet
+
+2025-03-14T02:25:58.932Z [4567/58610] - [32minfo[39m: [app] Shutdown (SIGTERM/SIGINT/SIGQUIT) Initialised.
+2025-03-14T02:25:58.935Z [4567/58610] - [32minfo[39m: [app] Web server closed to connections.
+2025-03-14T02:25:58.936Z [4567/58610] - [32minfo[39m: [app] Live analytics saved.
+2025-03-14T02:25:58.937Z [4567/58610] - [32minfo[39m: [app] Database connection closed.
+2025-03-14T02:25:58.937Z [4567/58610] - [32minfo[39m: [app] Shutdown complete.

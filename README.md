@@ -5,6 +5,9 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CMU-313_NodeBB&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=CMU-313_NodeBB)
 
 ## Team Deepdish Developers
+
+Sidney Ozcan, Jacob Franze, Michelle Bryson, Yining He, Yuqi Zou
+
 #### Sidney Ozcan, Jacob Franze, Michelle Bryson, Yining He, Yuqi Zou
 
 

@@ -76,12 +76,20 @@ jobs:
             }
         run: |
           node app --setup="${SETUP}" --ci="${CI}"
+        # this section added
+      - name: Install Python & Dependencies 
+        run: |
+          sudo apt update && sudo apt install -y python3 python3-pip
+          pip install pytest pytest-mock mock
 
       - name: Run ESLint
         run: npm run lint
 
       - name: Node tests
         run: npm test
+# This section added
+      - name: Run LLM tests
+        run: pytest tests/
 
       - name: Extract coverage info
         run: npm run coverage

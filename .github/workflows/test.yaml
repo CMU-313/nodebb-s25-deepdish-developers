@@ -89,7 +89,7 @@ jobs:
         run: npm test
 # This section added
       - name: Run LLM tests
-        run: pytest tests/
+        run: pytest test/LLMTESTS
 
       - name: Extract coverage info
         run: npm run coverage

@@ -7,6 +7,7 @@
 ## Team Deepdish Developers
 #### Sidney Ozcan, Jacob Franze, Michelle Bryson, Yining He, Yuqi Zou
 
+[**Link to Translator Service**] https://github.com/yiningh11/translator-service/commit/2f9916a8f7a413c04e11cf4d7e6ed5bc008f0ebd 
 
 [**NodeBB Forum Software**](https://nodebb.org) is powered by Node.js and supports either Redis, MongoDB, or a PostgreSQL database. It utilizes web sockets for instant interactions and real-time notifications. NodeBB takes the best of the modern web: real-time streaming discussions, mobile responsiveness, and rich RESTful read/write APIs, while staying true to the original bulletin board/forum format &rarr; categorical hierarchies, local user accounts, and asynchronous messaging.
 

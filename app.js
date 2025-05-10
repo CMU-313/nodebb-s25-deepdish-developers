@@ -16,6 +16,32 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+const Iroh = require('iroh');
+
+console.log("Initializing Iroh.js...");
+
+// Attach Iroh.js to dynamically analyze runtime behavior
+const irohInstance = new Iroh.Stage("runtime-analysis");
+
+// Function to wrap execution tracking
+function analyzeFunction(fn, name = "anonymous") {
+    return function (...args) {
+        console.log(`Iroh is tracking function: ${name}`);
+        const result = fn(...args);
+        console.log(`Function ${name} executed with result:`, result);
+        return result;
+    };
+}
+
+// Example: Wrap a core function (Modify this to wrap NodeBB functions)
+const originalRequire = require;
+require = analyzeFunction(originalRequire, "require");
+
+// Log that Iroh.js is active
+console.log("Iroh.js is running and tracking function calls...");
+
+
+
 
 'use strict';
 
